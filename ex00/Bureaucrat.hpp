@@ -6,7 +6,7 @@
 /*   By: graja <graja@student.42wolfsburg.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 11:37:43 by graja             #+#    #+#             */
-/*   Updated: 2022/02/23 13:02:30 by graja            ###   ########.fr       */
+/*   Updated: 2022/02/24 12:16:46 by graja            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define BUREAUCRAT_H
 
 # include <iostream>
+# include <stdexcept>
 
 class Bureaucrat
 {
@@ -32,9 +33,27 @@ class Bureaucrat
 
 		std::string const	getName(void);
 		int			getGrade(void);
-		void			setGrade(int updated);
-		void			incGrade(void);
-		void			decGrade(void);
+		void			incGrade(int update);
+		void			decGrade(int update);
+
+		class GradeTooHighException : public std::exception
+		{
+			public:
+				virtual const char * err() const throw()
+				{
+					return ("ERROR: graded too high !\n");
+				}
+		};
+		
+		class GradeTooLowException : public std::exception
+		{
+			public:
+				virtual const char * err() const throw()
+				{
+					return ("ERROR: graded too low !\n");
+				}
+		};
+
 };
 
 std::ostream&	operator<<(std::ostream &o, Bureaucrat &top);

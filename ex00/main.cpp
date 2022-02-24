@@ -6,7 +6,7 @@
 /*   By: graja <graja@student.42wolfsburg.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 12:27:33 by graja             #+#    #+#             */
-/*   Updated: 2022/02/23 13:11:11 by graja            ###   ########.fr       */
+/*   Updated: 2022/02/24 12:28:55 by graja            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,28 @@
 
 int	main(void)
 {
-	Bureaucrat	john("John");
-	Bureaucrat	momo("Momo", 5);
+	try
+	{
+		Bureaucrat	john("John", 1);
+		Bureaucrat	momo("Momo", 21);
 
-	john.incGrade();
-	momo.decGrade();
-	std::cout << john << std::endl << momo << std::endl;
-	momo = john;
-	std::cout << john << std::endl << momo << std::endl;
-
+		john.decGrade(100);
+		momo.decGrade(129);
+		std::cout << john << std::endl << momo << std::endl;
+		momo = john;
+		std::cout << john << std::endl << momo << std::endl;
+	}
+	catch (Bureaucrat::GradeTooHighException & cth)
+	{
+		std::cout << cth.err();
+	}
+	catch (Bureaucrat::GradeTooLowException & cth)
+	{
+		std::cout << cth.err();
+	}
+	catch (...)
+	{
+		std::cout << "Any other exception" << std::endl;
+	}
 	return (0);
 }
