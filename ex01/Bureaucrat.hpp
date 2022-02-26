@@ -6,7 +6,7 @@
 /*   By: graja <graja@student.42wolfsburg.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 11:37:43 by graja             #+#    #+#             */
-/*   Updated: 2022/02/24 12:16:46 by graja            ###   ########.fr       */
+/*   Updated: 2022/02/26 13:30:32 by graja            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,24 +33,34 @@ class Bureaucrat
 
 		std::string const	getName(void);
 		int			getGrade(void);
-		void			incGrade(int update);
-		void			decGrade(int update);
+		void			setGrade(int grade);
+		void			incGrade(void);
+		void			decGrade(void);
 
-		class GradeTooHighException : public std::exception
+		class Exception : public std::exception
 		{
 			public:
-				virtual const char * err() const throw()
+				virtual const char * what() const throw()
 				{
-					return ("ERROR: graded too high !\n");
+					return ("BureaucratException");
+				}
+		};
+
+		class GradeTooHighException : public Bureaucrat::Exception
+		{
+			public:
+				virtual const char * what() const throw()
+				{
+					return ("ERROR: Grade can't be higher than 1");
 				}
 		};
 		
-		class GradeTooLowException : public std::exception
+		class GradeTooLowException : public Bureaucrat::Exception
 		{
 			public:
-				virtual const char * err() const throw()
+				virtual const char * what() const throw()
 				{
-					return ("ERROR: graded too low !\n");
+					return ("ERROR: Grade can't be lower than 150");
 				}
 		};
 
