@@ -6,7 +6,7 @@
 /*   By: graja <graja@student.42wolfsburg.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 12:03:02 by graja             #+#    #+#             */
-/*   Updated: 2022/02/25 13:16:29 by graja            ###   ########.fr       */
+/*   Updated: 2022/02/26 13:55:16 by graja            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,24 @@ Bureaucrat::Bureaucrat(std::string name): _name(name), _grade(150)
 
 Bureaucrat::Bureaucrat(std::string name, int grade): _name(name)
 {
-	if (grade < 1)
-		throw Bureaucrat::GradeTooHighException();
-	else if (grade > 150)
-		throw Bureaucrat::GradeTooLowException();
-	else
-		this->_grade = grade;
+	try
+	{
+		if (grade < 1)
+			throw Bureaucrat::GradeTooHighException();
+		else if (grade > 150)
+			throw Bureaucrat::GradeTooLowException();
+		else
+			this->_grade = grade;
+	}
+	catch (Bureaucrat::Exception &e)
+	{
+		std::cout << e.what() << std::endl;
+		this->_grade = 150;
+		std::cout << "Grade set to a default of 150" << std::endl;
+	}
 }
 
-Bureaucrat::Bureaucrat(Bureaucrat const & cpy)
+Bureaucrat::Bureaucrat(Bureaucrat const & cpy): _name(cpy._name + "_cpy")
 {
 	*this = cpy;
 }
@@ -56,20 +65,51 @@ int			Bureaucrat::getGrade(void)
 	return (this->_grade);
 }
 
-void			Bureaucrat::incGrade(int update)
+void			Bureaucrat::incGrade(void)
 {
-	if (update < 0 || this->_grade - update < 1)
-		throw Bureaucrat::GradeTooHighException();
-	else
-		this->_grade -= update;
+	try
+	{
+		if (this->_grade - 1 < 1)
+			throw Bureaucrat::GradeTooHighException();
+		else
+			this->_grade--;
+	}
+	catch (Bureaucrat::Exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 }
 
-void			Bureaucrat::decGrade(int update)
+void			Bureaucrat::decGrade(void)
 {
-	if (update < 0 || this->_grade + update > 150)
-		throw Bureaucrat::GradeTooLowException();
-	else
-		this->_grade += update;
+	try
+	{
+		if (this->_grade + 1 > 150)
+			throw Bureaucrat::GradeTooLowException();
+		else
+			this->_grade++;
+	}
+	catch (Bureaucrat::Exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+}
+
+void			Bureaucrat::setGrade(int grade)
+{
+	try
+	{
+		if (grade < 1)
+			throw Bureaucrat::GradeTooHighException();
+		else if (grade > 150)
+			throw Bureaucrat::GradeTooLowException();
+		else
+			this->_grade = grade;
+	}
+	catch (Bureaucrat::Exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 }
 
 //OutputStream Overload part of std::string
