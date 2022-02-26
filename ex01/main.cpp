@@ -6,7 +6,7 @@
 /*   By: graja <graja@student.42wolfsburg.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 12:27:33 by graja             #+#    #+#             */
-/*   Updated: 2022/02/26 14:35:38 by graja            ###   ########.fr       */
+/*   Updated: 2022/02/26 18:18:08 by graja            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	main(void)
 {
-		Bureaucrat	john("John", 1);
+		Bureaucrat	john("John", 11);
 		Bureaucrat	momo("Momo", 21);
-		Form			neu("Test", 12,12);
+		Form			neu("Test", 12,1200);
 		Form			cpy;
 
 		john.setGrade(100);
@@ -25,18 +25,10 @@ int	main(void)
 		momo = john;
 		std::cout << john << std::endl << momo << std::endl;
 		std::cout << neu << std::endl;
-		neu = cpy;
-		john.setGrade(100);
-		std::cout << neu << std::endl;
-		std::cout << cpy << std::endl;
-		std::cout << momo << " is trying to sign" << std::endl;
-		std::cout << neu << std::endl;
-		neu.beSigned(momo);
-		std::cout << neu << std::endl << std::endl;
-		std::cout << john << " is trying to sign" << std::endl;
-		std::cout << neu << std::endl;
-		john.setGrade(10);
-		neu.beSigned(john);
-		std::cout << neu << std::endl;
+		john.signForm(neu);
+		john.setGrade(13);
+		john.signForm(neu);
+		john.incGrade();
+		john.signForm(neu);
 	return (0);
 }

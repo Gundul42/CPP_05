@@ -6,7 +6,7 @@
 /*   By: graja <graja@student.42wolfsburg.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 11:04:06 by graja             #+#    #+#             */
-/*   Updated: 2022/02/25 13:14:25 by graja            ###   ########.fr       */
+/*   Updated: 2022/02/26 18:15:43 by graja            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,19 @@ Form::Form(void): _name("Default form"), _signed(false), _grade2sign(150), _grad
 Form::Form(std::string name, int sign, int exec): _name(name), _signed(false), _grade2sign(sign),
 		_grade2exec(exec)
 {
+	try
+	{
+		if ((this->getGrade2Sign() < 1) || (this->getGrade2Exec() < 1))
+			throw Form::GradeTooHighException();
+		else if ((this->getGrade2Sign() > 150) || (this->getGrade2Exec() > 150))
+			throw Form::GradeTooLowException();
+	}
+	catch (Form::Exception & e)
+	{
+		std::cout << e.what() << std::endl;
+		std::cout << "Error while constructing object, exiting..." << std::endl;
+		exit (-1);
+	}
 }
 
 Form::Form(const Form & cpy): _name(cpy._name), _signed(cpy._signed), _grade2sign(cpy._grade2sign),
@@ -63,9 +76,9 @@ void		Form::beSigned(Bureaucrat p)
 		else
 			this->_signed = true;
 	}
-	catch (Form::GradeTooLowException & cth)
+	catch (Form::Exception & cth)
 	{
-		std::cout << cth.err() << std::endl;
+		std::cout << cth.what() << std::endl;
 	}
 }
 

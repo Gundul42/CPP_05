@@ -6,7 +6,7 @@
 /*   By: graja <graja@student.42wolfsburg.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 10:35:36 by graja             #+#    #+#             */
-/*   Updated: 2022/02/25 12:31:37 by graja            ###   ########.fr       */
+/*   Updated: 2022/02/26 17:37:19 by graja            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define FORM_H
 
 # include "Bureaucrat.hpp"
+
+class Bureaucrat;
 
 class Form
 {
@@ -37,12 +39,30 @@ class Form
 		bool		isSigned(void);
 		void		beSigned(Bureaucrat p);
 
-	class GradeTooLowException : public std::exception
+	class Exception
 	{
 		public:
-			virtual const char * err() const throw ()
+			virtual const char * what() const throw ()
+			{
+				return ("ERROR: Form class exception");
+			}
+	};
+
+	class GradeTooLowException : public Form::Exception
+	{
+		public:
+			virtual const char * what() const throw ()
 			{
 				return ("ERROR: Grade too low");
+			}
+	};
+
+	class GradeTooHighException : public Form::Exception
+	{
+		public:
+			virtual const char * what() const throw ()
+			{
+				return ("ERROR: Grade too high");
 			}
 	};
 };

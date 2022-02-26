@@ -6,7 +6,7 @@
 /*   By: graja <graja@student.42wolfsburg.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 11:37:43 by graja             #+#    #+#             */
-/*   Updated: 2022/02/26 13:30:32 by graja            ###   ########.fr       */
+/*   Updated: 2022/02/26 14:47:40 by graja            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <iostream>
 # include <stdexcept>
+# include "Form.hpp"
+class Form;
 
 class Bureaucrat
 {
@@ -36,6 +38,8 @@ class Bureaucrat
 		void			setGrade(int grade);
 		void			incGrade(void);
 		void			decGrade(void);
+
+		void			signForm(Form form);
 
 		class Exception : public std::exception
 		{
