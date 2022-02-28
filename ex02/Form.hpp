@@ -6,7 +6,7 @@
 /*   By: graja <graja@student.42wolfsburg.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 10:35:36 by graja             #+#    #+#             */
-/*   Updated: 2022/02/28 12:36:59 by graja            ###   ########.fr       */
+/*   Updated: 2022/02/28 13:52:30 by graja            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ class Form
 
 		Form & operator=(const Form & right);
 
-		std::string	getName(void);
-		int			getGrade2Sign(void);
-		int			getGrade2Exec(void);
-		bool		isSigned(void);
+		std::string	getName(void) const;
+		int			getGrade2Sign(void) const;
+		int			getGrade2Exec(void) const;
+		bool		isSigned(void) const;
 		void		beSigned(Bureaucrat p);
 
 		virtual void	execute(Bureaucrat const & executor) const;

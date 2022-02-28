@@ -6,7 +6,7 @@
 /*   By: graja <graja@student.42wolfsburg.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 12:03:02 by graja             #+#    #+#             */
-/*   Updated: 2022/02/26 15:16:08 by graja            ###   ########.fr       */
+/*   Updated: 2022/02/28 13:49:53 by graja            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,12 @@ Bureaucrat&	Bureaucrat::operator=(Bureaucrat const & right)
 }
 
 //methods
-std::string const	Bureaucrat::getName(void)
+std::string const	Bureaucrat::getName(void) const
 {
 	return (this->_name);
 }
 
-int			Bureaucrat::getGrade(void)
+int			Bureaucrat::getGrade(void) const
 {
 	return (this->_grade);
 }

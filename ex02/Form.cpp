@@ -6,7 +6,7 @@
 /*   By: graja <graja@student.42wolfsburg.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 11:04:06 by graja             #+#    #+#             */
-/*   Updated: 2022/02/28 12:38:27 by graja            ###   ########.fr       */
+/*   Updated: 2022/02/28 13:53:42 by graja            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,22 +47,22 @@ Form & Form::operator=(const Form & right)
 	return (*this);
 }
 
-std::string	Form::getName(void)
+std::string	Form::getName(void) const
 {
 	return (this->_name);
 }
 
-int			Form::getGrade2Sign(void)
+int			Form::getGrade2Sign(void) const
 {
 	return (this->_grade2sign);
 }
 
-int			Form::getGrade2Exec(void)
+int			Form::getGrade2Exec(void) const
 {
 	return (this->_grade2exec);
 }
 
-bool		Form::isSigned(void)
+bool		Form::isSigned(void) const
 {
 	return (this->_signed);
 }

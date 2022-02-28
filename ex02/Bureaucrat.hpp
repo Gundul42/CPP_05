@@ -6,7 +6,7 @@
 /*   By: graja <graja@student.42wolfsburg.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 11:37:43 by graja             #+#    #+#             */
-/*   Updated: 2022/02/26 14:47:40 by graja            ###   ########.fr       */
+/*   Updated: 2022/02/28 13:50:09 by graja            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ class Bureaucrat
 
 		Bureaucrat& operator=(Bureaucrat const & right);
 
-		std::string const	getName(void);
-		int			getGrade(void);
+		std::string const	getName(void) const;
+		int			getGrade(void) const;
 		void			setGrade(int grade);
 		void			incGrade(void);
 		void			decGrade(void);
