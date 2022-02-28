@@ -6,13 +6,14 @@
 #    By: graja <graja@student.42wolfsburg.de>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/12 14:06:05 by graja             #+#    #+#              #
-#    Updated: 2022/02/28 12:56:00 by graja            ###   ########.fr        #
+#    Updated: 2022/02/28 15:01:51 by graja            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	ex02
 
-SRCS	=	Bureaucrat.cpp  Form.cpp ShrubberyCreationForm.cpp main.cpp
+SRCS	=	Bureaucrat.cpp  Form.cpp ShrubberyCreationForm.cpp \
+		RobotomyRequestForm.cpp PresidentialPardonForm.cpp main.cpp
 
 CC	=	c++
 
