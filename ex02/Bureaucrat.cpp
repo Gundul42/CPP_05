@@ -6,7 +6,7 @@
 /*   By: graja <graja@student.42wolfsburg.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 12:03:02 by graja             #+#    #+#             */
-/*   Updated: 2022/02/28 18:28:46 by graja            ###   ########.fr       */
+/*   Updated: 2022/03/01 14:35:25 by graja            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ void			Bureaucrat::setGrade(int grade)
 	}
 }
 
-void			Bureaucrat::signForm(Form form)
+void			Bureaucrat::signForm(Form & form)
 {
 	form.beSigned(*this);
 	if (!form.isSigned())

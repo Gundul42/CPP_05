@@ -6,7 +6,7 @@
 /*   By: graja <graja@student.42wolfsburg.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 11:37:43 by graja             #+#    #+#             */
-/*   Updated: 2022/02/28 18:28:51 by graja            ###   ########.fr       */
+/*   Updated: 2022/03/01 14:35:07 by graja            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ class Bureaucrat
 		void			incGrade(void);
 		void			decGrade(void);
 
-		void			signForm(Form form);
+		void			signForm(Form & form);
 
 		class Exception : public std::exception
 		{

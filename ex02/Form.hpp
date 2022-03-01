@@ -6,7 +6,7 @@
 /*   By: graja <graja@student.42wolfsburg.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 10:35:36 by graja             #+#    #+#             */
-/*   Updated: 2022/02/28 18:27:16 by graja            ###   ########.fr       */
+/*   Updated: 2022/03/01 14:30:05 by graja            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ class Form
 		int			getGrade2Sign(void) const;
 		int			getGrade2Exec(void) const;
 		bool		isSigned(void) const;
-		void		beSigned(Bureaucrat p);
+		void		beSigned(const Bureaucrat & p);
 
-		virtual void	execute(Bureaucrat const & executor) const;
+		virtual void	execute(const Bureaucrat & executor) const;
 
 
 	class Exception

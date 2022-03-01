@@ -6,7 +6,7 @@
 /*   By: graja <graja@student.42wolfsburg.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 11:04:06 by graja             #+#    #+#             */
-/*   Updated: 2022/02/28 18:27:29 by graja            ###   ########.fr       */
+/*   Updated: 2022/03/01 14:34:09 by graja            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ bool		Form::isSigned(void) const
 	return (this->_signed);
 }
 
-void		Form::beSigned(Bureaucrat p)
+void		Form::beSigned(const Bureaucrat & p)
 {
 	try
 	{
@@ -82,7 +82,7 @@ void		Form::beSigned(Bureaucrat p)
 	}
 }
 
-void	Form::execute(Bureaucrat const & executor) const
+void	Form::execute(const Bureaucrat & executor) const
 {
 	std::cout << "Form" << std::endl;
 }
