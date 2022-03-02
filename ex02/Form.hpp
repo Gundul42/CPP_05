@@ -6,7 +6,7 @@
 /*   By: graja <graja@student.42wolfsburg.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 10:35:36 by graja             #+#    #+#             */
-/*   Updated: 2022/03/02 12:41:07 by graja            ###   ########.fr       */
+/*   Updated: 2022/03/02 12:43:58 by graja            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ class Form
 		bool		isSigned(void) const;
 		void		beSigned(const Bureaucrat & p);
 
-		virtual void	execute(const Bureaucrat & executor) const;
+		virtual void	execute(const Bureaucrat & executor) const = 0;
 
 
 	class GradeTooLowException : public std::exception
