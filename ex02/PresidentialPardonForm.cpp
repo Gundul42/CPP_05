@@ -6,7 +6,7 @@
 /*   By: graja <graja@student.42wolfsburg.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 12:14:06 by graja             #+#    #+#             */
-/*   Updated: 2022/03/02 15:43:58 by graja            ###   ########.fr       */
+/*   Updated: 2022/03/02 18:19:59 by graja            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,11 @@ PresidentialPardonForm::PresidentialPardonForm(void): Form(), _target("Default")
 {}
 
 PresidentialPardonForm::PresidentialPardonForm(std::string target):
-	Form("President", 25, 5), _target(target)
+	Form("Presidential_Creation", 25, 5), _target(target)
 {}
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm & cpy): Form(cpy)
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm & cpy):
+	Form(cpy), _target(cpy.getTarget() + "_cpy")
 {}
 
 PresidentialPardonForm::~PresidentialPardonForm(void)

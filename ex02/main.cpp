@@ -6,7 +6,7 @@
 /*   By: graja <graja@student.42wolfsburg.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 12:27:33 by graja             #+#    #+#             */
-/*   Updated: 2022/03/02 15:26:45 by graja            ###   ########.fr       */
+/*   Updated: 2022/03/02 18:11:03 by graja            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,18 @@ int	main(void)
 		Bureaucrat			john("John", 1);
 		ShrubberyCreationForm	neu("Home");
 		RobotomyRequestForm	robo("Drillit");
+		RobotomyRequestForm	lollo(robo);
 		PresidentialPardonForm	sry("Mr. BlackSheep");
+		int					i;
 
-		john.signForm(robo);
-		john.executeForm(robo);
+		i = 0;
+		john.signForm(lollo);
+		while (i < 25)
+		{
+			john.executeForm(lollo);
+			i++;
+		}
+		john.signForm(neu);
+		john.executeForm(neu);
 	return (0);
 }
