@@ -6,7 +6,7 @@
 /*   By: graja <graja@student.42wolfsburg.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 12:14:06 by graja             #+#    #+#             */
-/*   Updated: 2022/03/02 13:45:03 by graja            ###   ########.fr       */
+/*   Updated: 2022/03/02 14:29:56 by graja            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,10 @@ void	PresidentialPardonForm::execute(Bureaucrat const & executor) const
 	if (executor.getGrade() > this->getGrade2Exec())
 		throw Form::GradeTooLowException();
 	if (this->isSigned())
-		std::cout << this->getName() << " executed by " << executor.getName() << std::endl;
+	{
+		std::cout << executor.getName() << " has been pardoned by ";
+       		std::cout << "Zafod Beeblebrox" << std::endl;
+	}
 	else
-		std::cout << this->getName() << " has to be signed first" << std::endl;
+		std::cout << this->getName() << " has not been signed yet" << std::endl;
 }
