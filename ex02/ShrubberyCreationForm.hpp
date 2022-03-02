@@ -6,7 +6,7 @@
 /*   By: graja <graja@student.42wolfsburg.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 12:02:02 by graja             #+#    #+#             */
-/*   Updated: 2022/02/28 13:35:36 by graja            ###   ########.fr       */
+/*   Updated: 2022/03/02 14:42:24 by graja            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@ class Bureaucrat;
 
 class ShrubberyCreationForm : public Form
 {
+	private:
+		const std::string	_target;
+
 	public:
 		ShrubberyCreationForm(void);
 		ShrubberyCreationForm(std::string target);
@@ -28,7 +31,8 @@ class ShrubberyCreationForm : public Form
 
 		ShrubberyCreationForm & operator=(const ShrubberyCreationForm & right);
 
-		void	execute(Bureaucrat const & executor) const;
+		void			execute(Bureaucrat const & executor) const;
+		std::string	getTarget(void) const;
 };
 
 #endif
