@@ -6,7 +6,7 @@
 /*   By: graja <graja@student.42wolfsburg.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 12:27:33 by graja             #+#    #+#             */
-/*   Updated: 2022/03/01 15:10:20 by graja            ###   ########.fr       */
+/*   Updated: 2022/03/01 18:42:37 by graja            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(void)
 		RobotomyRequestForm	robo("Drillit");
 		PresidentialPardonForm	sry("SoSorry");
 
-		john.setGrade(100);
+		john.setGrade(146);
 		john.signForm(neu);
 		john.setGrade(213);
 		john.signForm(neu);

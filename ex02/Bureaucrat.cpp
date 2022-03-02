@@ -6,7 +6,7 @@
 /*   By: graja <graja@student.42wolfsburg.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 12:03:02 by graja             #+#    #+#             */
-/*   Updated: 2022/03/01 14:35:25 by graja            ###   ########.fr       */
+/*   Updated: 2022/03/02 10:08:47 by graja            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,14 +114,18 @@ void			Bureaucrat::setGrade(int grade)
 
 void			Bureaucrat::signForm(Form & form)
 {
-	form.beSigned(*this);
-	if (!form.isSigned())
+	try
 	{
+		form.beSigned(*this);
+	}
+	catch (std::exception & e)
+	{
+		std::cout << "----------------------------" << std::endl;
+		std::cout << e.what() << std::endl;
 		std::cout << this->getName() << " could not sign: " << form << std::endl;
 		std::cout << this->getName() << " has grade " << this->getGrade() <<  std::endl;
+		std::cout << "----------------------------" << std::endl << std::endl;
 	}
-	else
-		std::cout << this->getName() << " successfully signed: " << form << std::endl;
 }
 
 //OutputStream Overload part of std::string

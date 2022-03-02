@@ -6,7 +6,7 @@
 /*   By: graja <graja@student.42wolfsburg.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 10:35:36 by graja             #+#    #+#             */
-/*   Updated: 2022/03/01 14:30:05 by graja            ###   ########.fr       */
+/*   Updated: 2022/03/02 10:06:08 by graja            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,16 +42,7 @@ class Form
 		virtual void	execute(const Bureaucrat & executor) const;
 
 
-	class Exception
-	{
-		public:
-			virtual const char * what() const throw ()
-			{
-				return ("ERROR: Form class exception");
-			}
-	};
-
-	class GradeTooLowException : public Form::Exception
+	class GradeTooLowException : public std::exception
 	{
 		public:
 			virtual const char * what() const throw ()
@@ -60,7 +51,7 @@ class Form
 			}
 	};
 
-	class GradeTooHighException : public Form::Exception
+	class GradeTooHighException : public std::exception
 	{
 		public:
 			virtual const char * what() const throw ()

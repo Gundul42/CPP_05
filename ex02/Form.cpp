@@ -6,7 +6,7 @@
 /*   By: graja <graja@student.42wolfsburg.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 11:04:06 by graja             #+#    #+#             */
-/*   Updated: 2022/03/01 14:34:09 by graja            ###   ########.fr       */
+/*   Updated: 2022/03/02 10:05:05 by graja            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Form::Form(std::string name, int sign, int exec): _name(name), _signed(false), _
 		else if ((this->getGrade2Sign() > 150) || (this->getGrade2Exec() > 150))
 			throw Form::GradeTooLowException();
 	}
-	catch (Form::Exception & e)
+	catch (std::exception & e)
 	{
 		std::cout << e.what() << std::endl;
 		std::cout << "Error while constructing object, exiting..." << std::endl;
@@ -69,17 +69,10 @@ bool		Form::isSigned(void) const
 
 void		Form::beSigned(const Bureaucrat & p)
 {
-	try
-	{
-		if (p.getGrade() > this->_grade2sign)
-			throw Form::GradeTooLowException();
-		else
-			this->_signed = true;
-	}
-	catch (Form::Exception & cth)
-	{
-		std::cout << cth.what() << std::endl;
-	}
+	if (p.getGrade() > this->_grade2sign)
+		throw Form::GradeTooLowException();
+	else
+		this->_signed = true;
 }
 
 void	Form::execute(const Bureaucrat & executor) const
