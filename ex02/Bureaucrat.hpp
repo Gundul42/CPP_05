@@ -6,7 +6,7 @@
 /*   By: graja <graja@student.42wolfsburg.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 11:37:43 by graja             #+#    #+#             */
-/*   Updated: 2022/03/01 14:35:07 by graja            ###   ########.fr       */
+/*   Updated: 2022/03/02 10:14:11 by graja            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,16 +41,7 @@ class Bureaucrat
 
 		void			signForm(Form & form);
 
-		class Exception : public std::exception
-		{
-			public:
-				virtual const char * what() const throw()
-				{
-					return ("BureaucratException");
-				}
-		};
-
-		class GradeTooHighException : public Bureaucrat::Exception
+		class GradeTooHighException : public std::exception
 		{
 			public:
 				virtual const char * what() const throw()
@@ -59,7 +50,7 @@ class Bureaucrat
 				}
 		};
 		
-		class GradeTooLowException : public Bureaucrat::Exception
+		class GradeTooLowException : public std::exception
 		{
 			public:
 				virtual const char * what() const throw()

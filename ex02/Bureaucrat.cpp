@@ -6,7 +6,7 @@
 /*   By: graja <graja@student.42wolfsburg.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 12:03:02 by graja             #+#    #+#             */
-/*   Updated: 2022/03/02 10:08:47 by graja            ###   ########.fr       */
+/*   Updated: 2022/03/02 10:15:51 by graja            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade): _name(name)
 		else
 			this->_grade = grade;
 	}
-	catch (Bureaucrat::Exception &e)
+	catch (std::exception &e)
 	{
 		std::cout << e.what() << std::endl;
 		this->_grade = 150;
@@ -74,7 +74,7 @@ void			Bureaucrat::incGrade(void)
 		else
 			this->_grade--;
 	}
-	catch (Bureaucrat::Exception &e)
+	catch (std::exception &e)
 	{
 		std::cout << e.what() << std::endl;
 	}
@@ -89,7 +89,7 @@ void			Bureaucrat::decGrade(void)
 		else
 			this->_grade++;
 	}
-	catch (Bureaucrat::Exception &e)
+	catch (std::exception &e)
 	{
 		std::cout << e.what() << std::endl;
 	}
@@ -106,7 +106,7 @@ void			Bureaucrat::setGrade(int grade)
 		else
 			this->_grade = grade;
 	}
-	catch (Bureaucrat::Exception &e)
+	catch (std::exception &e)
 	{
 		std::cout << e.what() << std::endl;
 	}
