@@ -6,7 +6,7 @@
 /*   By: graja <graja@student.42wolfsburg.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 12:14:06 by graja             #+#    #+#             */
-/*   Updated: 2022/03/02 15:03:30 by graja            ###   ########.fr       */
+/*   Updated: 2022/03/02 15:42:58 by graja            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(void): Form(), _target("Default")
 {}
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target):
-	Form(target + "_ShrubberyCreator", 145, 137), _target(target)
+	Form("Shrubs", 145, 137), _target(target)
 {}
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm & cpy): Form(cpy)
