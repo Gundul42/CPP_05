@@ -6,7 +6,7 @@
 /*   By: graja <graja@student.42wolfsburg.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 12:03:02 by graja             #+#    #+#             */
-/*   Updated: 2022/03/02 10:15:51 by graja            ###   ########.fr       */
+/*   Updated: 2022/03/02 12:40:20 by graja            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,7 +129,7 @@ void			Bureaucrat::signForm(Form & form)
 }
 
 //OutputStream Overload part of std::string
-std::ostream &	operator<<(std::ostream &o, Bureaucrat &top)
+std::ostream &	operator<<(std::ostream &o, const Bureaucrat &top)
 {
 	o << top.getName() << " with bureaucrat grade of: " << top.getGrade();
 	return (o);

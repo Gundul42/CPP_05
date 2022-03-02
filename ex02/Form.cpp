@@ -6,7 +6,7 @@
 /*   By: graja <graja@student.42wolfsburg.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 11:04:06 by graja             #+#    #+#             */
-/*   Updated: 2022/03/02 10:05:05 by graja            ###   ########.fr       */
+/*   Updated: 2022/03/02 12:40:52 by graja            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void	Form::execute(const Bureaucrat & executor) const
 	std::cout << "Form" << std::endl;
 }
 
-std::ostream & operator<<(std::ostream &o, Form &top)
+std::ostream & operator<<(std::ostream &o, const Form &top)
 {
 	o << top.getName();
 	if (top.isSigned())

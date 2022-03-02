@@ -6,7 +6,7 @@
 /*   By: graja <graja@student.42wolfsburg.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 10:35:36 by graja             #+#    #+#             */
-/*   Updated: 2022/03/02 10:06:08 by graja            ###   ########.fr       */
+/*   Updated: 2022/03/02 12:41:07 by graja            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,6 @@ class Form
 	};
 };
 
-std::ostream& operator<<(std::ostream &o, Form &top);
+std::ostream& operator<<(std::ostream &o, const Form &top);
 
 #endif

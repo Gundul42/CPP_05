@@ -6,7 +6,7 @@
 /*   By: graja <graja@student.42wolfsburg.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 11:37:43 by graja             #+#    #+#             */
-/*   Updated: 2022/03/02 10:14:11 by graja            ###   ########.fr       */
+/*   Updated: 2022/03/02 12:40:33 by graja            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,6 @@ class Bureaucrat
 
 };
 
-std::ostream&	operator<<(std::ostream &o, Bureaucrat &top);
+std::ostream&	operator<<(std::ostream &o, const Bureaucrat &top);
 
 #endif
