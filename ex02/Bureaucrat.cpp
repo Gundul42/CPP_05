@@ -6,7 +6,7 @@
 /*   By: graja <graja@student.42wolfsburg.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 12:03:02 by graja             #+#    #+#             */
-/*   Updated: 2022/03/02 12:40:20 by graja            ###   ########.fr       */
+/*   Updated: 2022/03/02 13:32:32 by graja            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,6 +123,22 @@ void			Bureaucrat::signForm(Form & form)
 		std::cout << "----------------------------" << std::endl;
 		std::cout << e.what() << std::endl;
 		std::cout << this->getName() << " could not sign: " << form << std::endl;
+		std::cout << this->getName() << " has grade " << this->getGrade() <<  std::endl;
+		std::cout << "----------------------------" << std::endl << std::endl;
+	}
+}
+
+void			Bureaucrat::executeForm(const Form & form)
+{
+	try
+	{
+		form.execute(*this);
+	}
+	catch (std::exception & e)
+	{
+		std::cout << "----------------------------" << std::endl;
+		std::cout << e.what() << std::endl;
+		std::cout << this->getName() << " could not execute: " << form << std::endl;
 		std::cout << this->getName() << " has grade " << this->getGrade() <<  std::endl;
 		std::cout << "----------------------------" << std::endl << std::endl;
 	}

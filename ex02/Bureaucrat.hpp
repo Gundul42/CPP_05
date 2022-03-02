@@ -6,7 +6,7 @@
 /*   By: graja <graja@student.42wolfsburg.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 11:37:43 by graja             #+#    #+#             */
-/*   Updated: 2022/03/02 12:40:33 by graja            ###   ########.fr       */
+/*   Updated: 2022/03/02 13:29:46 by graja            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ class Bureaucrat
 		void			decGrade(void);
 
 		void			signForm(Form & form);
+		void			executeForm(const Form & form);
 
 		class GradeTooHighException : public std::exception
 		{

@@ -6,7 +6,7 @@
 /*   By: graja <graja@student.42wolfsburg.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 12:14:06 by graja             #+#    #+#             */
-/*   Updated: 2022/03/02 12:50:43 by graja            ###   ########.fr       */
+/*   Updated: 2022/03/02 13:44:30 by graja            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ RobotomyRequestForm & RobotomyRequestForm::operator=(const RobotomyRequestForm &
 
 void	RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
+	if (executor.getGrade() > this->getGrade2Exec())
+		throw Form::GradeTooLowException();
 	if (this->isSigned())
 		std::cout << this->getName() << " executed by " << executor.getName() << std::endl;
 	else

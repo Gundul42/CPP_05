@@ -6,7 +6,7 @@
 /*   By: graja <graja@student.42wolfsburg.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 12:14:06 by graja             #+#    #+#             */
-/*   Updated: 2022/03/02 12:51:12 by graja            ###   ########.fr       */
+/*   Updated: 2022/03/02 13:45:03 by graja            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ PresidentialPardonForm & PresidentialPardonForm::operator=(const PresidentialPar
 
 void	PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {
+	if (executor.getGrade() > this->getGrade2Exec())
+		throw Form::GradeTooLowException();
 	if (this->isSigned())
 		std::cout << this->getName() << " executed by " << executor.getName() << std::endl;
 	else

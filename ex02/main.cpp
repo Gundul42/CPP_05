@@ -6,7 +6,7 @@
 /*   By: graja <graja@student.42wolfsburg.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 12:27:33 by graja             #+#    #+#             */
-/*   Updated: 2022/03/02 13:18:16 by graja            ###   ########.fr       */
+/*   Updated: 2022/03/02 13:56:05 by graja            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,11 @@ int	main(void)
 		john.setGrade(146);
 		john.signForm(neu);
 		john.incGrade();
-		john.signForm(neu);
 		john.setGrade(3);
 		john.signForm(robo);
 		john.signForm(sry);
+		john.setGrade(45);
+		john.executeForm(sry);
+		john.executeForm(robo);
 	return (0);
 }
