@@ -6,7 +6,7 @@
 /*   By: graja <graja@student.42wolfsburg.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 12:14:06 by graja             #+#    #+#             */
-/*   Updated: 2022/03/01 13:39:10 by graja            ###   ########.fr       */
+/*   Updated: 2022/03/02 11:07:25 by graja            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,8 @@ RobotomyRequestForm & RobotomyRequestForm::operator=(const RobotomyRequestForm &
 
 void	RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
-	std::cout << "Executed by " << executor.getName() << std::endl;
+	if (this->isSigned())
+		std::cout << "Executed by " << executor.getName() << std::endl;
+	else
+		std::cout << "Form has to be signed first" << std::endl;
 }
