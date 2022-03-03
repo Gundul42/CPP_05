@@ -6,7 +6,7 @@
 /*   By: graja <graja@student.42wolfsburg.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 10:35:36 by graja             #+#    #+#             */
-/*   Updated: 2022/02/26 17:37:19 by graja            ###   ########.fr       */
+/*   Updated: 2022/03/03 15:25:39 by graja            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,26 +29,18 @@ class Form
 		Form(void);
 		Form(std::string name, int sign, int exec);
 		Form(const Form & cpy);
-		~Form(void);
+		virtual ~Form(void);
 
 		Form & operator=(const Form & right);
 
-		std::string	getName(void);
-		int			getGrade2Sign(void);
-		int			getGrade2Exec(void);
-		bool		isSigned(void);
-		void		beSigned(Bureaucrat p);
+		std::string	getName(void) const;
+		int			getGrade2Sign(void) const;
+		int			getGrade2Exec(void) const;
+		bool		isSigned(void) const;
+		void		beSigned(const Bureaucrat & p);
 
-	class Exception
-	{
-		public:
-			virtual const char * what() const throw ()
-			{
-				return ("ERROR: Form class exception");
-			}
-	};
 
-	class GradeTooLowException : public Form::Exception
+	class GradeTooLowException : public std::exception
 	{
 		public:
 			virtual const char * what() const throw ()
@@ -57,7 +49,7 @@ class Form
 			}
 	};
 
-	class GradeTooHighException : public Form::Exception
+	class GradeTooHighException : public std::exception
 	{
 		public:
 			virtual const char * what() const throw ()
@@ -67,6 +59,6 @@ class Form
 	};
 };
 
-std::ostream& operator<<(std::ostream &o, Form &top);
+std::ostream& operator<<(std::ostream &o, const Form &top);
 
 #endif

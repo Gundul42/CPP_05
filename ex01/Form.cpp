@@ -6,7 +6,7 @@
 /*   By: graja <graja@student.42wolfsburg.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 11:04:06 by graja             #+#    #+#             */
-/*   Updated: 2022/02/28 11:24:37 by graja            ###   ########.fr       */
+/*   Updated: 2022/03/02 13:20:43 by graja            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Form::Form(std::string name, int sign, int exec): _name(name), _signed(false), _
 		else if ((this->getGrade2Sign() > 150) || (this->getGrade2Exec() > 150))
 			throw Form::GradeTooLowException();
 	}
-	catch (Form::Exception & e)
+	catch (std::exception & e)
 	{
 		std::cout << e.what() << std::endl;
 		std::cout << "Error while constructing object, exiting..." << std::endl;
@@ -47,42 +47,38 @@ Form & Form::operator=(const Form & right)
 	return (*this);
 }
 
-std::string	Form::getName(void)
+std::string	Form::getName(void) const
 {
 	return (this->_name);
 }
 
-int			Form::getGrade2Sign(void)
+int			Form::getGrade2Sign(void) const
 {
 	return (this->_grade2sign);
 }
 
-int			Form::getGrade2Exec(void)
+int			Form::getGrade2Exec(void) const
 {
 	return (this->_grade2exec);
 }
 
-bool		Form::isSigned(void)
+bool		Form::isSigned(void) const
 {
 	return (this->_signed);
 }
 
-void		Form::beSigned(Bureaucrat p)
+void		Form::beSigned(const Bureaucrat & p)
 {
-	try
+	if (p.getGrade() > this->_grade2sign)
+		throw Form::GradeTooLowException();
+	else
 	{
-		if (p.getGrade() > this->_grade2sign)
-			throw Form::GradeTooLowException();
-		else
-			this->_signed = true;
-	}
-	catch (Form::Exception & cth)
-	{
-		std::cout << cth.what() << std::endl;
+		this->_signed = true;
+		std::cout << p.getName() << " successfully signed " << *this << std::endl;
 	}
 }
 
-std::ostream & operator<<(std::ostream &o, Form &top)
+std::ostream & operator<<(std::ostream &o, const Form &top)
 {
 	o << top.getName();
 	if (top.isSigned())

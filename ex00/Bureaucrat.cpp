@@ -6,7 +6,7 @@
 /*   By: graja <graja@student.42wolfsburg.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 12:03:02 by graja             #+#    #+#             */
-/*   Updated: 2022/02/26 13:55:16 by graja            ###   ########.fr       */
+/*   Updated: 2022/03/03 15:23:40 by graja            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade): _name(name)
 		else
 			this->_grade = grade;
 	}
-	catch (Bureaucrat::Exception &e)
+	catch (std::exception &e)
 	{
 		std::cout << e.what() << std::endl;
 		this->_grade = 150;
@@ -55,12 +55,12 @@ Bureaucrat&	Bureaucrat::operator=(Bureaucrat const & right)
 }
 
 //methods
-std::string const	Bureaucrat::getName(void)
+std::string const	Bureaucrat::getName(void) const
 {
 	return (this->_name);
 }
 
-int			Bureaucrat::getGrade(void)
+int			Bureaucrat::getGrade(void) const
 {
 	return (this->_grade);
 }
@@ -74,7 +74,7 @@ void			Bureaucrat::incGrade(void)
 		else
 			this->_grade--;
 	}
-	catch (Bureaucrat::Exception &e)
+	catch (std::exception &e)
 	{
 		std::cout << e.what() << std::endl;
 	}
@@ -89,7 +89,7 @@ void			Bureaucrat::decGrade(void)
 		else
 			this->_grade++;
 	}
-	catch (Bureaucrat::Exception &e)
+	catch (std::exception &e)
 	{
 		std::cout << e.what() << std::endl;
 	}
@@ -106,14 +106,14 @@ void			Bureaucrat::setGrade(int grade)
 		else
 			this->_grade = grade;
 	}
-	catch (Bureaucrat::Exception &e)
+	catch (std::exception &e)
 	{
 		std::cout << e.what() << std::endl;
 	}
 }
 
 //OutputStream Overload part of std::string
-std::ostream &	operator<<(std::ostream &o, Bureaucrat &top)
+std::ostream &	operator<<(std::ostream &o, const Bureaucrat &top)
 {
 	o << top.getName() << " with bureaucrat grade of: " << top.getGrade();
 	return (o);
