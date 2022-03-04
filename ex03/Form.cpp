@@ -6,7 +6,7 @@
 /*   By: graja <graja@student.42wolfsburg.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 11:04:06 by graja             #+#    #+#             */
-/*   Updated: 2022/03/02 13:20:43 by graja            ###   ########.fr       */
+/*   Updated: 2022/03/04 12:04:39 by graja            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,4 +87,5 @@ std::ostream & operator<<(std::ostream &o, const Form &top)
 		o << ", unsigned";
 	o << ", Grade to sign = " << top.getGrade2Sign() << ", Grade to execute = ";
 	o << top.getGrade2Exec();
+	return (o);
 }
